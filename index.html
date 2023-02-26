@@ -17,10 +17,11 @@
 
     <main class="container">
 
-    <!-- SEARCH  area  -->
+        <!-- SEARCH  area  -->
         <div class="mt-5 mb-5 d-flex justify-content-center">
-            <div class="d-flex w-50 " role="search" >
-                <input id="search-field" class="form-control me-2" type="search" placeholder="Search Your Phone" aria-label="Search">
+            <div class="d-flex w-50 " role="search">
+                <input id="search-field" class="form-control me-2" type="search" placeholder="Search Your Phone"
+                    aria-label="Search">
                 <button class="btn btn-outline-warning" type="submit" id="search-btn">Search</button>
             </div>
         </div>
@@ -28,12 +29,26 @@
 
         <section>
             <!-- cards  -->
-            <div id="main-container" class="row row-cols-1 row-cols-md-3 g-4">
+            <div id="main-container" class="row row-cols-1 row-cols-md-3 g-4 pb-5">
 
             </div>
 
             <div id="no-phone-warning" class="d-none">
-                <h1 class="text-danger d-flex  align-items-center justify-content-center mt-5 pt-5 " >No results found. Please try new search.</h1>
+                <h1 class="text-danger d-flex  align-items-center justify-content-center mt-5 pt-5 ">No results found.
+                    Please try new search.</h1>
+            </div>
+
+            <div class="text-center d-none" id="show-all">
+                <div class="btn btn-warning">Show All</div>
+            </div>
+        </section>
+
+        <!-- loading animation  -->
+        <section class="d-none" id="loader">
+            <div style="height: 500px;" class="d-flex justify-content-center text-primary align-items-center">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
             </div>
         </section>
     </main>

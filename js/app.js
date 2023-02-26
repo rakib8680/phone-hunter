@@ -11,8 +11,12 @@ const displayData = phones => {
     const cardsContainer = document.getElementById('main-container');
     cardsContainer.innerText = '';
 
+    const showAllButton = document.getElementById('show-all');
     // display 10 phones 
-    phones = phones.slice(0, 12);
+    if (phones.length > 10) {
+        phones = phones.slice(0, 12);
+
+    }
 
     // display no phones found 
     const noPhone = document.getElementById('no-phone-warning');
@@ -42,13 +46,29 @@ const displayData = phones => {
        </div>
         `
         cardsContainer.appendChild(div);
-    })
+    });
+    // stop spinner 
+    toggleSpinner(false);
 };
 
 
+// search eventlistener 
 document.getElementById('search-btn').addEventListener('click', function () {
+    // start loader
+    toggleSpinner(true);
     const searchText = document.getElementById('search-field').value;
     loadData(searchText);
-})
+});
+
+// activate spinner 
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader');
+    if (isLoading) {
+        loaderSection.classList.remove('d-none');
+    }
+    else {
+        loaderSection.classList.add('d-none');
+    }
+}
 
 // loadData()
