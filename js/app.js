@@ -110,12 +110,20 @@ const loadPhoneDetails = async id => {
 
 // display phone details 
 const displayPhoneDetails = phone => {
-    console.log(phone)
+    // console.log(phone)
     const modalTitle = document.getElementById('phoneDetailsModalLabel');
     modalTitle.innerText = phone.name
     const modalBody = document.getElementById("modal-body");
-    modalBody.innerHTML =`
+    const modalImage = document.getElementById('modalImage');
+    const modalInfo = document.getElementById('modalInfo');
+    modalImage.innerHTML = `
     <img src="${phone.image}">
+    
+    `
+    modalInfo.innerHTML = `
+    <p> ${phone.releaseDate ? phone.releaseDate : 'No release date found'} </p>
+    <p>Storage : ${phone.mainFeatures.storage ? phone.mainFeatures.storage : 'no details found'} </p>
+    <p>Chipset : ${phone.mainFeatures.chipSet} </p>
     `
 }
 
